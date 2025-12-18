@@ -1,11 +1,12 @@
-import streamlit as st # type: ignore 
-import numpy as np # type: ignore
-import matplotlib.pyplot as plt # type: ignore
-from sklearn.model_selection import train_test_split # type: ignore
-from sklearn.preprocessing import StandardScaler # type: ignore
-from sklearn.linear_model import LinearRegression # type: ignore
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score # type: ignore
-import pandas as pd # type: ignore
+import streamlit as st  
+import seaborn as sns 
+import numpy as np 
+import matplotlib.pyplot as plt 
+from sklearn.model_selection import train_test_split 
+from sklearn.preprocessing import StandardScaler 
+from sklearn.linear_model import LinearRegression 
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score 
+import pandas as pd 
 
 #Page configuration
 st.set_page_config("Simple Linear Regression ", layout="centered")
@@ -25,9 +26,7 @@ st.markdown("""
 # Load dataset
 @st.cache_data
 def load_data():
-    return pd.read_csv(
-        "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv"
-    )
+    return sns.load_dataset('tips')
 
 df = load_data()
 
