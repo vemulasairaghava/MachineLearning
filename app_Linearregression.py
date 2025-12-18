@@ -30,7 +30,7 @@ def load_data():
 
 df = load_data()
 
-# Display dataset
+# Dataset Preview
 st.markdown('<div class="card">', unsafe_allow_html=True)
 st.subheader("Dataset Preview")
 st.dataframe(df.head())
@@ -43,9 +43,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
+
 # Train the model
 model = LinearRegression()
 model.fit(X_train_scaled, y_train)
+
 # Make predictions
 y_pred = model.predict(X_test_scaled)
 # Evaluate the model
